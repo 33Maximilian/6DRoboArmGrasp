@@ -264,7 +264,7 @@ RealSense D435
     ├─ /grasp/width      (Float64)
     └─ /grasp/score      (Float64)
     ↓
-[ROS1 订阅 或 其他处理]
+[机械臂订阅和处理信息]
     ↓
 [机械臂运动规划 & 控制]
 ```
