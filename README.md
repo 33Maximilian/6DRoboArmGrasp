@@ -15,6 +15,11 @@
 - **CUDA version**: CUDA12.8
 推荐使用conda虚拟环境运行anygrasp。
 
+```bash
+conda create -n graspnet python=3.9
+conda activate graspnet
+```
+
 ### 获取Graspnet
 ```bash
 # 克隆 anygrasp_sdk 仓库
@@ -23,11 +28,18 @@ git clone https://github.com/graspnet/anygrasp_sdk.git
 # 克隆 graspnetAPI 仓库
 git clone https://github.com/graspnet/graspnetAPI.git
 ```
+
 然后根据官方README进行本地构建。
 
 ### 核心依赖
 （详情见requirement.txt）
-NOTE：依赖可以改，关键是版本要匹配
+NOTE：注意，对于CUDA 12.8版本需要根据我的requirement.txt对应修改graspnetAPI/setup.py和
+anygrasp_sdk/requirements.txt的相关依赖，关键是版本要匹配。安装顺序是先装API再装SDK，SDK所需推荐的pytorch版本是2.7.1+cu128，可以运行以下命令进行安装：
+
+```bash
+pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+# 然后接着SDK官方的命令继续安装就好了
+```
 
 #### RealSense 摄像头
 pyrealsense2 & RealSense SDK 
